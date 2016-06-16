@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace xCarpaccio.client
@@ -24,9 +25,11 @@ namespace xCarpaccio.client
                 Bill bill = null;
                 //TODO: do something with order and return a bill if possible
                 // If you manage to get the result, return a Bill object (JSON serialization is done automagically)
-                // Else return a HTTP 404 error : return Negotiate.WithStatusCode(HttpStatusCode.NotFound);
+                // Else return a HTTP 404 error : 
+                return Negotiate.WithStatusCode(HttpStatusCode.NotFound);
+               
                 
-                return bill;
+                //return bill;
             };
 
             Post["/feedback"] = _ =>
@@ -37,5 +40,10 @@ namespace xCarpaccio.client
                 return Negotiate.WithStatusCode(HttpStatusCode.OK);
             };
         }
+        public void CalculerTotal()
+        {
+
+        }
     }
+    
 }
